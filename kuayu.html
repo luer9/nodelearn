@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id="gett">GET</button>
+    <button id="postt">POST</button>
+    <script>
+        $(function() {
+            // 1. test get
+            $('#gett').on('click', function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1/api/get',
+                    data: {name: 'qqq', age: 20},
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+            // 2. test post
+            $('#postt').on('click', function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://127.0.0.1/api/post',
+                    data: {city: 'japan'},
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

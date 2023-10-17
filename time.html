@@ -1,0 +1,41 @@
+<html>
+  <head>
+  </head>  
+  <body onload="startTime()">
+    簡單的時鐘
+    <div id="clock"> </div>
+  </body>
+  <script>
+    function startTime(){
+        var today = new Date();
+        var hh = today.getHours();
+        var mm = today.getMinutes();
+        var ss = today.getSeconds();
+        mm = checkTime(mm);
+        ss = checkTime(ss);
+        document.getElementById('clock').innerHTML = hh + ":" + mm + ":" + ss;
+        var timeoutId = setTimeout(startTime, 500);
+    }
+
+    function checkTime(i){
+        if(i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+  </script>
+  <style>
+    #clock{
+        color:white;
+        font: 2em sans-serif; 
+        background: black; 
+        margin: 0 auto;
+        padding: 5px;
+        border: solid gray 2px; 
+        border-radius: 10px;
+        width:160px;
+        text-align:center;
+    }
+  </style>
+</html>
